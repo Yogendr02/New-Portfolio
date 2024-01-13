@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const http = require("http")
 const cors = require("cors")
-
+require("dotenv").config()
 app.use(cors())
 app.use(express.json())
 app.use(express.static(__dirname + '/public'))
@@ -28,7 +28,7 @@ const pro = async()=>{
 
 pro()
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 server.listen(PORT,()=>{
     console.log(`server connected to 3001`)
 })
